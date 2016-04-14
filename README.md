@@ -1,3 +1,17 @@
+http://www.kennybastani.com/2015/07/spring-cloud-docker-microservices.html
+
+1) Install Docker toolkit.
+2) Unstall VM if on creation of docker machine, hot only adapter won't create.
+3) Install VM from installer given in toolkit installation folder.
+4) Follow - https://docs.docker.com/machine/get-started/
+	a) docker-machine create --driver virtualbox default
+	b) docker-machine env default
+	c) Execute all statements output from above command in cmd to set env variables.
+	d) Check docker ps
+	e) Check docker version
+5) If everything is ok, you can now run mvn clean install.
+
+-------------------------------------------------------
 # Spring Cloud Example Project
 
 An example project that demonstrates an end-to-end cloud-native platform using Spring Cloud for building a practical microservices architecture.
