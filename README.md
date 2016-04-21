@@ -4,12 +4,27 @@ http://www.kennybastani.com/2015/07/spring-cloud-docker-microservices.html
 2) Unstall VM if on creation of docker machine, hot only adapter won't create.
 3) Install VM from installer given in toolkit installation folder.
 4) Follow - https://docs.docker.com/machine/get-started/
-	a) docker-machine create --driver virtualbox default
-	b) docker-machine env default
+	a) docker-machine create --driver virtualbox default or docker-machine start default
+	b) docker-machine env default - in case of cert error, run docker-machine regenerate-certs default
 	c) Execute all statements output from above command in cmd to set env variables.
 	d) Check docker ps
 	e) Check docker version
-5) If everything is ok, you can now run mvn clean install.
+5) If you are behind corporate proxy, you need to add proxy in your maven setting.xml file.
+6) If everything is ok, you can now run mvn clean install.
+7) Once done, cd to docker folder and run docker-compose up
+8) Connect to http://docker-ip:8761/ (IP can be found through docker-machine env default)
+
+Run servce individually
+
+- In case you want to run the service individually without using docker, follow below steps.
+
+1) You need to comment out below code of application.java to avoid any binding errors.
+	//@EnableDiscoveryClient
+	//@EnableZuulProxy
+	//@EnableHystrix
+2) You can now cd to docker dir of individual service and run below command
+	docker run -p 0.0.0.0:9005:9005 kbastani/movie-microservice (9005 is tomcat port)
+3) Now you can access it from your URL http://<vm IP>:9005/movies
 
 -------------------------------------------------------
 # Spring Cloud Example Project

@@ -13,9 +13,9 @@ import org.springframework.data.neo4j.config.Neo4jConfiguration;
 
 @SpringBootApplication
 @EnableNeo4jRepositories
-@EnableDiscoveryClient
-@EnableZuulProxy
-@EnableHystrix
+//@EnableDiscoveryClient
+//@EnableZuulProxy
+//@EnableHystrix
 public class Application extends Neo4jConfiguration {
 
 	public Application() {
